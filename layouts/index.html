@@ -20,17 +20,15 @@
 
                 <hr>
 
-                {{ if .Site.Params.summary.enable }}
-                {{ partial "summary.html" . }}
-                {{ end }}
-
-                <hr>
-
                 <div class="resume-body">
 
                     <div class="row">
 
                         <div class="resume-main col-12 col-lg-8 col-xl-9 pr-0 pr-lg-5">
+
+                            {{ if .Site.Params.summary.enable }}
+                            {{ partial "summary.html" . }}
+                            {{ end }}
 
                             {{ if .Site.Params.experience.enable }}
                             {{ partial "experience.html" . }}

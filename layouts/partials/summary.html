@@ -1,16 +1,22 @@
 
-                <div class="resume-intro py-3">
+                            <section class="work-section py-3">
 
-                    <div class="media flex-column flex-md-row align-items-center">
+                                <h3 class="text-uppercase resume-section-heading mb-4">{{ i18n "summary" }}</h3>
 
-                        {{ if .Site.Params.profile.avatar }}
-                        <img class="resume-profile-image mb-3 mb-md-0 mr-md-5 ml-md-0 rounded mx-auto" src="{{ .Site.BaseURL }}assets/images/{{ .Site.Params.profile.avatar }}" alt="image">
-                        {{ end }}
+                                {{ range .Site.Params.summary.list }}
+                                <div class="item mb-3">
+<!--                                     <div class="item-heading row align-items-center mb-2">
+                                        <h4 class="item-title col-12 col-md-6 col-lg-6 mb-2 mb-md-0">{{ .title }}</h4>
+                                    </div>
+ -->                                    <div class="item-content">
+                                        <p>{{ with .details }}{{ . | markdownify }}{{ end }}</p>
+                                        <ul class="resume-list">
+                                            {{ range .items }}
+                                            <li>{{ with .details }}{{ . | markdownify }}{{ end }}</li>
+                                            {{ end }}
+                                        </ul>
+                                    </div>
+                                </div><!--//item-->
+                                {{ end }}
 
-                        <div class="media-body text-left">
-                            <p class="mb-0">{{ .Site.Params.summary.text | markdownify }}</p>
-                        </div><!--//media-body-->
-
-                    </div>
-
-                </div><!--//resume-intro-->
+                            </section><!--//work-section-->
